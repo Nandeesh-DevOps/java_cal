@@ -1,82 +1,102 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Calculator</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
+```
+<title>Java Calculator</title>
 
-        .calculator {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 320px;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .calculator {
+        background: white;
+        width: 320px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-            font-size: 18px;
-        }
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
 
-        select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
+    input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+    select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
 
-        button:hover {
-            background: #555;
-        }
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
 
-        #result {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-        }
-    </style>
+    button:hover {
+        background: #555;
+    }
+
+    #result {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+</style>
+```
+
 </head>
 
 <body>
 
+```
 <div class="calculator">
 
     <h1>Java Calculator</h1>
 
-    <input type="number" id="num1" placeholder="First number">
+    <input
+        type="number"
+        id="num1"
+        placeholder="Enter first number"
+    >
 
-    <input type="number" id="num2" placeholder="Second number">
+    <input
+        type="number"
+        id="num2"
+        placeholder="Enter second number"
+    >
 
     <select id="operation">
         <option value="add">Addition (+)</option>
@@ -85,49 +105,74 @@
         <option value="divide">Division (÷)</option>
     </select>
 
-    <button onclick="calculate()">Calculate</button>
+    <button onclick="calculate()">
+        Calculate
+    </button>
 
     <div id="result"></div>
 
 </div>
 
 <script>
+
     function calculate() {
-        const num1 = parseFloat(document.getElementById("num1").value);
-        const num2 = parseFloat(document.getElementById("num2").value);
-        const operation = document.getElementById("operation").value;
+
+        const num1 = parseFloat(
+            document.getElementById("num1").value
+        );
+
+        const num2 = parseFloat(
+            document.getElementById("num2").value
+        );
+
+        const operation =
+            document.getElementById("operation").value;
+
+        const resultElement =
+            document.getElementById("result");
 
         if (isNaN(num1) || isNaN(num2)) {
-            document.getElementById("result").innerText =
+
+            resultElement.innerText =
                 "Please enter both numbers.";
+
             return;
         }
 
         let result;
 
         if (operation === "add") {
+
             result = num1 + num2;
-        } 
-        else if (operation === "subtract") {
+
+        } else if (operation === "subtract") {
+
             result = num1 - num2;
-        } 
-        else if (operation === "multiply") {
+
+        } else if (operation === "multiply") {
+
             result = num1 * num2;
-        } 
-        else if (operation === "divide") {
+
+        } else if (operation === "divide") {
+
             if (num2 === 0) {
-                document.getElementById("result").innerText =
+
+                resultElement.innerText =
                     "Cannot divide by zero.";
+
                 return;
             }
 
             result = num1 / num2;
         }
 
-        document.getElementById("result").innerText =
+        resultElement.innerText =
             "Result: " + result;
     }
+
 </script>
+```
 
 </body>
+
 </html>
